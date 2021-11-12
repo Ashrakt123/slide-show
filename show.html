@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>slideShow</title>
+    </head>
+    
+    <style>
+        #container
+        {
+        margin: 0 auto;
+        width: 600px;
+        padding: 10px;
+        border:green solid 3px;
+        text-align: center
+        }
+        
+        p
+        { 
+        text-align: center;
+        font-size:20px;
+        color: darkorange;
+        }
+        
+       img
+        {
+        border:green solid 3px;
+        width:400px;
+        height: 400px;
+        margin-bottom: 15px;
+        }
+        
+        input
+        {
+            width: 100px;
+           margin: 10px;
+            text-align: center;
+        }
+        
+    </style>
+    
+    <body>
+        
+        <div id="container">
+           <p>slide show game</p>
+            <img src="image/im1.jpg" id="big"/><br/>
+            <input  type="button" value="<" onclick="prev();"  style="backgroud-color: red " />
+            <input type="button" value="play"  onclick="startshow();" />
+            <input type="button" value="stop" onclick="stopshow();" />
+            <input type="button" value=">" onclick="next();" />
+         </div>
+    
+        <script>
+            var i=0;
+          
+            var imarray=["image/im1.jpg" ,"image/im2.jpg" ,"image/im3.jpg" ,"image/im4.jpg" ,"image/im5.jpg" ,"image/im6.jpg"];
+            
+        function startshow() {
+            a=setInterval("next()" ,2000);
+        }
+            
+        function next() {
+            i++;
+            if (i >= imarray.length) {
+                i = 0;
+            }
+          big.src= imarray[i];
+        }
+        function prev() {
+            i--;
+            if (i < 0)
+                i =imarray.length - 1;
+           big.src = imarray[i];
+        }
+            
+        function stopshow() {
+            clearInterval(a);
+        }
+        
+        </script>
+    
+    </body>
+</html>
